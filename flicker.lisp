@@ -44,7 +44,7 @@
                (l (aref a i))
                (r (aref a (mod (1+ i) ,(length pattern)))))
           (lerp l r (* rest ,(/ dt))))))
-   (* (length pattern) dt)))
+   (* (1- (length pattern)) dt)))
 
 (defmacro define-flicker-pattern (name pattern &key (dt 1/10))
   `(setf (flicker-pattern ',name) (compile-flicker-pattern ,pattern :dt ,dt)))
